@@ -56,6 +56,15 @@ namespace Advisor.Infrastructure
         /// <inheritdoc cref="Advisor.Application.IAdvisorRepository.PostAdvisor(Advisor.Domain.Advisor objAdvisor)" />
         public async Task<int> PostAdvisor(Advisor.Domain.Advisor objAdvisor)
         {
+            Random rnd = new Random();
+            int nums = rnd.Next(1, 100);
+            if (nums <= 60)
+                objAdvisor.HealthStatus = "Green";
+            else if(nums <= 80)
+                    objAdvisor.HealthStatus = "Yellow";
+            else
+                objAdvisor.HealthStatus = "Red";
+
             _context.Advisors.Add(objAdvisor);
             await _context.SaveChangesAsync();
             if (objAdvisor.Id != 0)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Advisor.Domain
         [Phone]
         [MinLength(8)]
         public string Phone { get; set; }
-        [RegularExpression("Red|Green|Blue", ErrorMessage = "Invalid Health Status")]
+        [SwaggerSchema(ReadOnly = true)]
         public string HealthStatus { get; set; }
     }
 }

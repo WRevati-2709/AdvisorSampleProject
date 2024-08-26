@@ -13,8 +13,7 @@ namespace AdvisorTest
                 Name= "test",
                 SIN= "226-600-259",
                 Address="asd fgh jkl",
-                Phone = "21436587",
-                HealthStatus="Green"
+                Phone = "21436587"
             });
 
             var result = advisorRepositary.GetAdvisor(1).Result;
@@ -24,7 +23,6 @@ namespace AdvisorTest
             Assert.Equal("226-600-259", result.SIN);
             Assert.Equal("asd fgh jkl", result.Address);
             Assert.Equal("21436587", result.Phone);
-            Assert.Equal("Green", result.HealthStatus);
 
         }
     }
